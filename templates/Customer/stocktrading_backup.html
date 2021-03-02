@@ -1,0 +1,166 @@
+{% load widget_tweaks %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <!--Bootstrap CSS-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+  <style>
+    input[type=text], select {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+    title {text-align: center; font-family: 'Courier New', monospace;}
+    h1 {text-align: center; font-size: '18';}
+    h3 {text-align: center; font-size: '12';}
+    p {text-align: center; font-size: '12';}
+    form {text-align: center; font-size: '4';}
+    
+body  {
+background-image:url('{% static 'customer_2.jpg' %}');
+background-repeat:no-repeat;
+background-size:100%;
+}
+    </style>
+</head>
+
+
+       
+<body>   
+{% include "Customer/headertab.html" %}
+<div class="container">
+  
+  <h3> <center>Stock Trading </center> </h3>
+  </br>
+</br>
+     <div class="container" style="background: transparent; border-radius: 25px; border: 1px solid #000000; color:black; font-family: Copperplate;">
+      
+    <form action = "/Customer/stocktrading/" method="POST" enctype="multipart/form-data" style = "width: 100%; font-size: 10; background: transparent; border-radius: 25px; border: 1px solid #000000; color:black; font-family: Copperplate;" class="form-group">
+
+      {% csrf_token %}
+      {% load bootstrap %}
+    
+      <div class="panel-heading" style="background: transparent; border-radius: 25px; border: 1px solid #000000; color:black; font-family: Copperplate;">Watchlist: Add/ Remove Stocks</div>
+        <div class="panel-body" style="background: transparent; border-radius: 25px; border: 1px solid #000000; color:black; font-family: Copperplate;">
+          <input type="text" name="stock_symbol" placeholder="Enter Stock Symbol">
+          </br>
+          <button type = "submit" id = "addstock" name = "addstock" value = "addstock" style="background-color: #4CAF50;
+            border: none;
+            color: white;
+            width: 30%;
+            padding: 6px 12px;">Add Stock</button>
+            </br>
+            </br>
+           <button type = "submit" id = "removestock" name = "removestock" value = "removestock" style="background-color: #33A2FF;
+            border: none;
+            color: white;
+            width: 30%;
+            padding: 6px 12px;">Remove Stock</button>
+          
+      </div>
+
+      <br>
+      <br>
+        <div class="panel-heading" style="background: transparent; border-radius: 25px; border: 1px solid #000000; color:black; font-family: Copperplate;">Buy/ Sell Stocks</div>
+        <div class="panel-body" style="background: transparent; border-radius: 25px; border: 1px solid #000000; color:black; font-family: Copperplate;">
+
+            <input type="text" name="stock_symbol" placeholder="Enter Stock Symbol">
+            </br>
+            </br>
+            <input type="text" name="stock_count" placeholder="Enter Stock Quantity">
+            </br>
+            </br>
+            <input type="text" name="stock_price" placeholder="Enter Stock Price">
+            </br>
+            </br>
+            <button type = "submit" id = "buystock" name = "buystock" value = "buystock" style="background-color: #4CAF50;
+            border: none;
+            color: white;
+            width: 50%;
+            padding: 6px 12px;">Buy Stocks</button>
+            <br>
+            <br>
+            <button type = "submit" id = "sellstock" name = "sellstock" value = "sellstock" style="background-color: #33A2FF;
+            border: none;
+            color: white;
+            width: 50%;
+            padding: 6px 12px;">Sell Stocks</button>
+            
+      </div>
+  
+      <br>
+      <br>
+      <div class="panel panel-info" style="background: transparent; border-radius: 25px; border: 1px solid #000000; color:black; font-family: Copperplate;">
+        <div class="panel-body" style="background: transparent; border-radius: 25px; border: 1px solid #000000; color:black; font-family: Copperplate;">
+
+              {% for message in messages %}
+              <div class="container-fluid p-0">
+              <div class="alert {{ message.tags }} alert-dismissible" role="alert" >
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                {{ message }}
+                </div>
+              </div>
+              {% endfor %}
+              <br>
+        </div>      
+        </div>
+<br>
+
+    <div class="panel-heading" style="background: transparent; border-radius: 25px; border: 1px solid #000000; color:black; font-family: Copperplate;">View Stock Trend</div>
+        <div class="panel-body" style="background: transparent; border-radius: 25px; border: 1px solid #000000; color:black; font-family: Copperplate;">
+        <select id = "stock_dropdown_symbol" name = "stock_dropdown_symbol">
+
+        {% for t in table %}
+        <option name = "stock_option" id = "stock_option" value= "{{ t.stock_symbol }}" >{{ t.stock_symbol }}</option>
+        {% endfor %}
+
+        </select>
+        <button type = "submit" id = "stock_dropdown" name = "stock_dropdown" value = "stock_dropdown" style="background-color: #33A2FF;
+          border: none;
+          color: white;
+          width: 50%;
+          padding: 6px 12px;">View Trends</button>
+        </br>
+        <br>
+        {{ plot1|safe }}
+        <br>
+    
+    </div>
+    </form>
+  
+  </div>
+
+    <!-- Optional Javascript -->
+      <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+    </body>
+</html>

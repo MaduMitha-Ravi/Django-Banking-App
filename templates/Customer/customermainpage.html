@@ -1,0 +1,112 @@
+{% load render_table from django_tables2 %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+<style>
+  body  {
+background-image:url('{% static 'customer_9.jpeg' %}');
+background-repeat:no-repeat;
+background-size:100%;
+}
+</style>
+  <body>
+{% include "Customer/headertab.html" %}
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <center><div ><h2 style="color:black; font-size: 16 ;font-family: Copperplate;">Summary Page</h2></div></center>
+    <br>
+    
+    <form class="form-group" action = "/Customer/customermainpage/" method="POST" enctype="multipart/form-data" style = "width: 90%; font-size: 12; color:black; font-family: Copperplate; overflow: scroll;" class="form-group" >
+
+    <div class="container" style= "background: transparent;">
+
+      <div class="panel-group">
+
+        
+          <div class="panel-body" style="color:black; font-family: Copperplate; background: transparent; border-radius: 25px; border: 1px solid #000000; font-size: 20;">Hello {{ user.username }} ! <br> Your Customer ID is {{ user.id }} <br> </div>
+        
+        <br>
+        <br>
+        <div class="panel-heading" style="background: transparent; border-radius: 25px; border: 1px solid #000000; color:black; font-family: Copperplate;">Loan Request Status</div>
+          <div class="panel-body" style="background: transparent; border-radius: 25px; border: 1px solid #000000; ">
+            {% csrf_token %}
+
+            {% load render_table from django_tables2 %}
+            {% load bootstrap4 %}
+
+            <table class="table table-hover">
+            <thead class="table-dark">
+            <tr> 
+            <td>Loan Request ID</td>
+            <td>Loan Amount</td>
+            <td>Loan Status</td>
+            </tr>
+            </thead>
+            {% for item in table1 %}
+              <tr>
+                  <td>{{ item.loan_id }}</td> 
+                  <td>{{ item.loan_amount }}</td> 
+                  <td>{{ item.loan_status }}</td> 
+              </tr>
+            {% endfor %}
+            </table> 
+
+        </div>
+          <br>
+          <br>
+          <div class="panel-heading" style="color:black; border-radius: 25px; border: 1px solid #000000; font-family: Copperplate;">Transaction Summary</div>
+          <div class="panel-body" style="background: transparent; border-radius: 25px; border: 1px solid #000000; ">
+            
+            {% csrf_token %}
+
+            {% load render_table from django_tables2 %}
+            {% load bootstrap4 %}
+
+            <table class="table table-hover">
+            <thead class="table-dark">
+            <tr> 
+            <td>Reference Number</td>
+            <td>Timestamp</td>
+            <td>Type</td>
+            <td>Amount</td>
+            <td>Message</td>
+            <td>Status</td>
+            </tr>
+            </thead>
+
+            {% for item in table %}
+              <tr>
+                  <td>{{ item.transactionreferencenumber }}</td> 
+                  <td>{{ item.transaction_timestamp }}</td> 
+                  <td>{{ item.transaction_type }}</td> 
+                  <td>{{ item.transaction_amount }}</td> 
+                  <td>{{ item.transaction_message }}</td> 
+                  <td>{{ item.transaction_status }}</td> 
+              </tr>
+            {% endfor %}
+            </table> 
+
+          </div>
+        </div>
+    </form>
+
+  </body>
+</html>
+
