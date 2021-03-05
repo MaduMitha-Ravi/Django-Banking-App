@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="/static /static/boot/css/bootstrap.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <!--Bootstrap CSS-->
@@ -17,10 +16,9 @@
     p {text-align: center; font-size: '12';}
     form {text-align: left; font-size: '4';}
     body{
-  background-image:url('{% static 'banker_3.jpg' %}');
+  background-image:url('{% static 'banker_5.jpeg' %}');
   background-repeat:no-repeat;
-  background-size:120%;
-  background-color: #33A2FF;
+  background-size:110%;
 }
     </style>
 </head>
@@ -32,11 +30,11 @@
 <div class="container">
   
 </br>
-  <div ><h2 style="color:black; font-family: Copperplate;">Register New Customers</h2></div>
+  <div ><h2 style="color:black; font-family: Copperplate;"><marquee behavior="alternate" scrollamount="10">Register New Customers</marquee></h2></div>
   </br>
 		 <div class="container">
 		 	
-    <center><form class="form-horizontal" action = "/Banker/registercustomer/" method="POST" enctype="multipart/form-data" style = "width: 70%; font-size: 10; color:black; font-family: Copperplate; overflow: scroll;" class="form-group" >
+    <center><form class="form-horizontal" action = "{% url 'Banker:registercustomer' %}" method="POST" enctype="multipart/form-data" style = "font-family: Copperplate;width: 50%; font-size: 10; vertical-align: right; background-color: none; margin: auto; position: absolute; left: 40%; overflow: scroll;" class="form-group" >
       <!--style = "width: 50%; background-color: none; margin: auto; font-size: 14 " -->
         {% load bootstrap %}
 
@@ -65,12 +63,12 @@
     <input type="button" value="Submit" onClick="this.form.submit()" style="background-color: #4CAF50;
       border: none;
       color: white;
-      width: 40%;
+      width: 30%;
       padding: 10px 24px;"/>
       <input name='reset' type='reset' value='Reset' style="background-color: #33A2FF;
       border: none;
       color: white;
-      width: 40%;
+      width: 30%;
       padding: 10px 24px;"/>
     <br>
     <br>

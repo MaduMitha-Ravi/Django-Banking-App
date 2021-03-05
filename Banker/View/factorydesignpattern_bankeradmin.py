@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.db import connection
 from django.contrib import messages
 from django.shortcuts import render
+from Banker.View.bankerlogin import bankerlogin
 
 class FactoryPattern:
 
@@ -12,17 +13,17 @@ class FactoryPattern:
 		with connection.cursor() as cursor:
 			results = cursor.execute("DELETE FROM public.auth_user where username = '%s'" %username)
 			connection.commit()
-		messages.success(request, ('Customer deleted successfully'))
-
+			messages.success(request, ('Customer deleted successfully'))
+		
 		return render(request, 'Banker/customeradmin.html', {}) 
 
 	def enablecustomer(request, username):
 		"""
 		Check whether the username is in disabled status to proceed with Enabling the customer based on the Username and update the same in the DB
 		"""	
-		if check_status(username) == 'true':
-			messages.success(request, ('Customer is already in active status.'))
-		elif check_status(username) == 'false':
+		if FactoryPattern.check_status(username) == 'True':
+			messages.error(request, ('Customer is already in active status.'))
+		elif FactoryPattern.check_status(username) == 'False':
 			with connection.cursor() as cursor:
 				results = cursor.execute("UPDATE public.auth_user SET is_active = 'true' where username = '%s'" %username)
 				connection.commit()
@@ -35,9 +36,9 @@ class FactoryPattern:
 		Check whether the username is in enabled status to proceed with disabling the customer based on the Username and update the same in the DB
 		"""		
 		if FactoryPattern.check_status(username) == 'False':
-			messages.success(request, ('Customer is already in disabled status.'))
+			messages.error(request, ('Customer is already in disabled status.'))
 		elif FactoryPattern.check_status(username) == 'True':
-			print("now here")
+			#print("now here")
 			with connection.cursor() as cursor:
 				results = cursor.execute("UPDATE public.auth_user SET is_active = 'false' where username = '%s'" %username)
 				connection.commit()
@@ -56,6 +57,6 @@ class FactoryPattern:
 			i = i.replace('(', '')
 			i = i.replace(',)', '')
 			user_status = i
-			print(user_status)
+			#print(user_status)
 
 		return user_status

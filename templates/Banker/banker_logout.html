@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,16 +10,25 @@
 
     <!-- Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+    .center {
+text-align: center;
+  margin: 30px;
+  width: 90%;
+  padding: 40px;
+}
+    body  {
+background-image:url('{% static 'banker_8.jpeg' %}');
+background-repeat:no-repeat;
+background-size:100%;
+}
+
+  </style>
   </head>
 
   <body>
-{% include "Banker/bankerheadertab.html" %}
+  {% include "Banker/bankerheadertab.html" %}
 
-<div class="container" style="padding-top: 60px;">
-{% block content %}
-
-{% endblock content %}
-</div>
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -26,11 +36,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
- <div class="page-header">
-      <center></center><h1 class="text-center"><b>Thank you!! </br> You are now logged out successfully!  </b></h1></center>
+<div class = "center" style = "  line-height: 600px; font-size: 36;  text-align: center; vertical-align: middle; ">
+<p class="text-center" style="color:black; font-size: 28px; font-family: Copperplate;" ><b>Thank you!! You are now logged out successfully!  </b></p>
     </div>
-
-  </body>
+</body>
 </html>
 
 

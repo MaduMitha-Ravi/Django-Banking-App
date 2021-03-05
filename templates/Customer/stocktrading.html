@@ -45,7 +45,7 @@
     form {text-align: center; font-size: '4';background-color: transparent!important;}
     
 body  {
-background-image:url('{% static 'customer_8.jpeg' %}');
+background-image:url('{% static 'customer_12.jpeg' %}');
 background-repeat:no-repeat;
 background-size:140%;
 }
@@ -58,7 +58,8 @@ div{background-color: transparent!important;}
 <body>   
 {% include "Customer/headertab.html" %}
 <div class="container">
-  <center><div ><h2 style="color:black; font-size: 16 ;font-family: Copperplate;">Stock Trading</h2></div></center>
+  <div ><h2 style="color:black; font-family: Copperplate;"><marquee behavior="alternate" scrollamount="10">Stock Trading</marquee></h2></div>
+  
   
      <form action = "/Customer/stocktrading/" method="POST" enctype="multipart/form-data" style = "width: 60%; font-size: 10; background: transparent; font-family: Copperplate;" class="form-group">
 
@@ -66,13 +67,33 @@ div{background-color: transparent!important;}
       {% load bootstrap %}
     
     <div class="panel-group" id="accordion">
+
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4" style="background: transparent;"></a></h4></div>
+        <div id="collapse4" class="panel-collapse collapse in" style="background: transparent;">
+        <div class="panel-body">
+          {% for message in messages %}
+              <div class="container-fluid p-0">
+              <div class="alert {{ message.tags }} alert-dismissible" role="alert" >
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                {{ message }}
+                </div>
+              </div>
+              {% endfor %}
+              <br>
+</div></div></div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          
           <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" style="background: transparent;">Watchlist: Add/ Remove Stocks</a>
         </h4>
       </div>
-      <div id="collapse1" class="panel-collapse collapse in" style="background: transparent;">
+      <div id="collapse1" class="panel-collapse collapse" style="background: transparent;">
         <div class="panel-body">
           <input type="text" name="stock_symbol1" placeholder="Enter Stock Symbol" style="width: 50%;">
           </br>
@@ -88,17 +109,7 @@ div{background-color: transparent!important;}
             width: 30%;
             padding: 6px 12px;">Remove Stock</button>
             <br>
-            {% for message in messages %}
-              <div class="container-fluid p-0">
-              <div class="alert {{ message.tags }} alert-dismissible" role="alert" >
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-                {{ message }}
-                </div>
-              </div>
-              {% endfor %}
-              <br>
+            
         </div>
       </div>
     </div>
@@ -109,7 +120,7 @@ div{background-color: transparent!important;}
           <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" style="background: transparent;">Buy/ Sell Stocks</a>
         </h4>
       </div>
-      <div id="collapse2" class="panel-collapse collapse in" style="background: transparent;">
+      <div id="collapse2" class="panel-collapse collapse" style="background: transparent;">
         <div class="panel-body">
           <input type="text" name="stock_symbol" placeholder="Enter Stock Symbol" style="width: 50%;">
             </br>
@@ -140,7 +151,7 @@ div{background-color: transparent!important;}
           <a data-toggle="collapse" data-parent="#accordion" href="#collapse3" style="background: transparent;">Stock WatchList</a>
         </h4>
       </div>
-      <div id="collapse3" class="panel-collapse collapse in" style="background: transparent;">
+      <div id="collapse3" class="panel-collapse collapse " style="background: transparent;">
         <div class="panel-body">
           <select id = "stock_dropdown_symbol" name = "stock_dropdown_symbol" style="width: 50%;">
 
@@ -155,12 +166,19 @@ div{background-color: transparent!important;}
           width: 30%;
           padding: 6px 12px;">View Trends</button>
         </br>
-        <br>
-        {{ plot1|safe }}
-        <br>
           </div>
       </div>
     </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse5" style="background: transparent;"></a></h4></div>
+        <div id="collapse5" class="panel-collapse collapse in" style="background: transparent;">
+        <div class="panel-body">
+          {{ plot1|safe }}
+              <br>
+</div></div></div>
 
   </div>
     </form>

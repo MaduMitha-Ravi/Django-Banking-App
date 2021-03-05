@@ -5,7 +5,7 @@
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <!--Bootstrap CSS-->
+  
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     
   <meta charset="utf-8">
@@ -19,25 +19,22 @@
   display: inline;
     vertical-align: middle;}
     #rcorners2 {
-  padding: 50px; 
-  width: 600px;
+  padding: 0px; 
+  width: 500px;
   height: 450px;  
 }
 #rcorners1 {
-  text-align: middle;
-  vertical-align: middle;
-  padding: 2px; 
-  width: 650px;
-  height: 450px;  
+  padding: 6px; 
+  width: 450px;
+  height: 650px;  
 }
 .control-label{
     text-align: middle;
 }
 body{
-  background-image:url('{% static 'banker_3.jpg' %}');
+  background-image:url('{% static 'banker_7.jpeg' %}');
   background-repeat:no-repeat;
-  background-size:120%;
-  background-color: #33A2FF;
+  background-size:100%;
 }
 </style>
 </head>
@@ -46,30 +43,27 @@ body{
 {% include "Banker/bankerheadertab.html" %}
 <div class="container">
 
-  <div ><h2 style="color:black; font-family: Copperplate;">Customer Admin</h2></div>
+  <div ><h2 style="color:black; font-family: Copperplate;"><marquee behavior="alternate" scrollamount="10">Administrative Works</marquee></h2></div>
   
 		 <div class="container" >
-      <form action = "/Banker/customeradmin/" method="POST" enctype="multipart/form-data" style = "width: 100%; font-size: 10; " class="form-group">
+      <form action = "/Banker/customeradmin/" method="POST" enctype="multipart/form-data" style = "font-family: Copperplate;width: 100%; font-size: 10; vertical-align: right; background-color: none; margin: auto; position: absolute; left: 10%; overflow: scroll;" class="form-group">
             {% csrf_token %}
       
       <div class="col-sm-6" id="rcorners2" style="display: inline-block;">
-        <br>
-        <br>
-      <select name = "dropdown" class="form-control" aria-label="Default select example" style = "width: 60%">
+        
+      <select name = "dropdown" class="form-control" aria-label="Default select example" style = "width: 90%">
       <option selected>Select Admin Option</option>
       <option id = "disablecustomer" name = "disablecustomer"  value="disablecustomer">Disable Customer</option>
       <option id = "enablecustomer" name = "enablecustomer"  value="enablecustomer">Enable Customer</option>
       <option id = "deletecustomer" name = "deletecustomer"  value="deletecustomer">Delete Customer</option>
       </select>
       <br>
-      <br>
-      <input type="text" class="form-control" name="username" placeholder="Enter Username" style = "width: 60%">
-      <br>
+      <input type="text" class="form-control" name="username" placeholder="Enter Username" style = "width: 90%">
       <br>
       <button type = "submit" class="btn btn-primary" id = "submit" name = "submit" value = "submit" style="
       border: none;
       color: white;
-      width: 60%;
+      width: 30%;
       background-color: #1F45FC;" >Submit</button>
       </br>
       </br>
@@ -86,7 +80,6 @@ body{
     </div>
 
     <div class="col-sm-6" id="rcorners1" style = "display: inline-block;">
-
       {{ admin_stats_plot|safe }}
 
     </div>
