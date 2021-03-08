@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Banker',
     'Customer',
-    #'django_plotly_dash.apps.DjangoPlotlyDashConfig',
+    'django_plotly_dash.apps.DjangoPlotlyDashConfig',
     'widget_tweaks',
     'djmoney',
     'phone_field',
@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'bootstrapform',
     'dpd_static_support',
     'bootstrap4',
-        'whitenoise.runserver_nostatic',
+    'whitenoise.runserver_nostatic',
 ]
 
 
