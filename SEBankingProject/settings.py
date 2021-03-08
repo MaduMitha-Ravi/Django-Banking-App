@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Banker',
     'Customer',
-    'django_plotly_dash.apps.DjangoPlotlyDashConfig',
+    #'django_plotly_dash.apps.DjangoPlotlyDashConfig',
     'widget_tweaks',
     'djmoney',
     'phone_field',
@@ -62,8 +62,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django_plotly_dash.middleware.BaseMiddleware',
-    'django_plotly_dash.middleware.ExternalRedirectionMiddleware',
+    #'django_plotly_dash.middleware.BaseMiddleware',
+   # 'django_plotly_dash.middleware.ExternalRedirectionMiddleware',
 ]
 
 ROOT_URLCONF = 'SEBankingProject.urls'
@@ -72,7 +72,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates'),
-                 '/Users/madumitharavi/Documents/UniversityOfRegina/Semester4/SoftwareEngineering/SEProject/SEBankingProject/templates',
+                # '/Users/madumitharavi/Documents/UniversityOfRegina/Semester4/SoftwareEngineering/SEProject/SEBankingProject/templates',
                 ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -150,23 +150,11 @@ DEFAULT_FROM_EMAIL = 'default from email'
 # Adding ASGI Application
 ASGI_APPLICATION = 'Customer.routing.application'
 
-PLOTLY_COMPONENTS = [
-    'dash_core_components',
-    'dash_html_components',
-    'dash_bootstrap_components',
-    'dash_renderer',
-    'dpd_components',
-    'dpd_static_support',
-]
 
 STATICFILES_FINDERS = [
 
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-
-    'django_plotly_dash.finders.DashAssetFinder',
-    'django_plotly_dash.finders.DashComponentFinder',
-    'django_plotly_dash.finders.DashAppDirectoryFinder',
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
