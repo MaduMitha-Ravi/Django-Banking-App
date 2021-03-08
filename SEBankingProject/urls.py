@@ -25,6 +25,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^Banker/',include('Banker.urls')),
     url(r'^Customer/',include('Customer.urls')),
-    path('django_plotly_dash/', include('django_plotly_dash.urls')),
-    
+      
 ]
