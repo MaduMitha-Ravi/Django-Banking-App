@@ -1,0 +1,1 @@
+web: gunicorn SEBankingProject.wsgi --log-file -
