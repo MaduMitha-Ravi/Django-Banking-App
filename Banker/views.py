@@ -78,10 +78,12 @@ class Banker:
                 abstract_bankeradministration.admin(request, username)
                 
 
-        admin_stats_plot = bankeradministration.admin_stats(request)
-        context = {'admin_stats_plot': admin_stats_plot}
+                admin_stats_plot = bankeradministration.admin_stats(request)
+                context = {'admin_stats_plot': admin_stats_plot}
 
-        return render(request, 'Banker/customeradmin.html', context = context)
+                return render(request, 'Banker/customeradmin.html', context = context)
+        else:
+            return render(request, 'Banker/customeradmin.html', context = context)
 
     @login_required(login_url='/Banker/banker_login/')
     def banker_logout(request):
