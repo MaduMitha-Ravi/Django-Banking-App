@@ -8,7 +8,8 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.db import connection
 from django.template import Context
-from datetime import date
+#from datetime import date
+from datetime import date, timedelta
 import yfinance as yf
 from Customer.View.customervalidation import CustomerValidation
 from Customer.View.stockwatchlist import StockWatchlistActivities
@@ -193,8 +194,9 @@ class StockBuySell:
 	def stock_actual_price(stock_symbol):
 		tickerData = yf.Ticker(stock_symbol)
 		today = date.today()
+		yesterday = today - timedelta(days = 1)
 		todaydate = today.strftime("%Y-%m-%d")
-		tickerDf = tickerData.history(period='1d', start=todaydate, end=todaydate)
+		tickerDf = tickerData.history(period='1d', start=yesterday, end=todaydate)
 		print('Stocks:')
 		print(tickerDf['High'])
 		print(tickerDf['Low'])
