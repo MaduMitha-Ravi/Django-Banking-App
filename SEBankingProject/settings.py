@@ -12,7 +12,7 @@ MEDIA_DIR = os.path.join(BASE_DIR,'media')
 SECRET_KEY = 'h-y2gz04oc&4zc!(q$t6n^9@tp0km@7ff%n!0_s2#m2u8-tnmc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['cs872seproject.herokuapp.com', '127.0.0.1']
 
