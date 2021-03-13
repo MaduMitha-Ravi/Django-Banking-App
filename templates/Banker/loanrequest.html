@@ -33,7 +33,7 @@ background-size:115%;
   </br>
 </br>
 		 <div class="container" >
-      <form action = "/Banker/loanrequest/" method="POST" enctype="multipart/form-data" style = "width: 100%; font-size: 10; " class="form-group">
+      <form action = "/Banker/loanrequest/" method="POST" enctype="multipart/form-data" style = "width: 100%; font-size: 120%; font-family: Copperplate; " class="form-group">
             {% csrf_token %}
 
             
@@ -41,8 +41,8 @@ background-size:115%;
             {% load bootstrap4 %}
 
       <table class="table table-hover">
-            <thead class="table">
-        <tr>
+            <thead class="table" style = "font-size: 160%; font-family: Copperplate;">
+       <tr>
       <td>Loan ID</td>
       <td>Account ID</td>
       <td>Loan Amount Requested</td>
@@ -50,7 +50,7 @@ background-size:115%;
       </tr>
     </thead>
       {% for item in table %}
-      <tr>
+      <tr style = "font-size: 120%; font-family: Copperplate;">
           <td>{{ item.loan_id }}</td>
           <td>{{ item.account_id }}</td>
           <td>{{ item.loan_amount }}</td>
