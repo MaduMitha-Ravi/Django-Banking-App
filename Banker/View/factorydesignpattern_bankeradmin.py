@@ -13,7 +13,7 @@ class FactoryPattern:
 		with connection.cursor() as cursor:
 			results = cursor.execute("DELETE FROM public.auth_user where username = '%s'" %username)
 			connection.commit()
-			messages.success(request, ('Customer deleted successfully'))
+		messages.success(request, ('Customer deleted successfully'))
 		
 		return render(request, 'Banker/customeradmin.html', {}) 
 
@@ -38,7 +38,7 @@ class FactoryPattern:
 		if FactoryPattern.check_status(username) == 'False':
 			messages.error(request, ('Customer is already in disabled status.'))
 		elif FactoryPattern.check_status(username) == 'True':
-			#print("now here")
+			print("now here")
 			with connection.cursor() as cursor:
 				results = cursor.execute("UPDATE public.auth_user SET is_active = 'false' where username = '%s'" %username)
 				connection.commit()
