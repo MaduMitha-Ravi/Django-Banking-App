@@ -71,9 +71,7 @@ class Banker:
     def customeradmin(request):
         admin_stats_plot = bankeradministration.admin_stats(request)
         context = {'admin_stats_plot': admin_stats_plot}
-        print('in main')
         if request.POST:
-            print('in post')
             username = request.POST.get('username')
             if bankeradministration.validate_username(request, username) == 0:
                 abstract_bankeradministration.admin(request, username)
