@@ -24,7 +24,7 @@ from Banker.View.bankerlogin import bankerlogin
 from Banker.View.registernewcustomers import registernewcustomers
 from Banker.View.loanrequestqueue import loanrequestqueue
 from Banker.View.bankeradministration import bankeradministration
-
+from Banker.View.abstract_bankeradministration import abstract_bankeradministration
 
 class Banker:
 
