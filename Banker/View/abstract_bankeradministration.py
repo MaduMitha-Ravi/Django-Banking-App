@@ -10,8 +10,8 @@ class abstract_bankeradministration:
 
 	def admin(request, username):
 		if request.POST.get('dropdown') == 'disablecustomer':
-            FactoryPattern.disablecustomer(request, username)
-        elif request.POST.get('dropdown') == 'deletecustomer': 
-            FactoryPattern.deletecustomer(request, username)
-        elif request.POST.get('dropdown') == 'enablecustomer': 
-            FactoryPattern.enablecustomer(request, username)
+		    FactoryPattern.disablecustomer(request, username)
+		elif request.POST.get('dropdown') == 'deletecustomer': 
+		    FactoryPattern.deletecustomer(request, username)
+		elif request.POST.get('dropdown') == 'enablecustomer': 
+		    FactoryPattern.enablecustomer(request, username)
