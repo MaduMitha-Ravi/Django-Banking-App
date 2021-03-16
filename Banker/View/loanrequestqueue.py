@@ -65,9 +65,9 @@ class loanrequestqueue:
 	        print(prediction[0])
 
 	        if prediction[0] == 0 :
-	            messages.info(request, ('Prediction: Loan can be approved with 82 percent accuracy! '))
+	            messages.success(request, ('Prediction: Loan can be approved with approximately 82% score! '))
 	        if prediction[0] == 1 :
-	            messages.info(request, ('Prediction: Loan can be declined with 82 percent accuracy!'))
+	            messages.error(request, ('Prediction: Loan can be declined with approximately 82% score!'))
 	      
 	    return render(request, 'Banker/loanrequest.html', {})
 
