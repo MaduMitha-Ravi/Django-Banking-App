@@ -18,7 +18,7 @@ class registernewcustomers:
 	    
 	    if request.method == 'POST':
 		print(request.POST)
-	        form = RegisterCustomerForm(request.POST)
+	       	form = RegisterCustomerForm(request.POST)
 	        if form.is_valid():
 	            UserModel = get_user_model()
 	            username = request.POST.get('username')
