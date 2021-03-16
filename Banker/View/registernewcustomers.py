@@ -35,8 +35,8 @@ class registernewcustomers:
 
 					return render(request, 'Banker/registercustomer.html', {'form': form})
 			elif 'reset' in request.POST:
-				form = RegisterCustomerForm()
-				return render(request, 'Banker/registercustomer.html', {'form': form})
+				#form = RegisterCustomerForm()
+				return HttpResponseRedirect(request.path)
 		else:
 			form = RegisterCustomerForm()
 		
