@@ -15,10 +15,10 @@ class registernewcustomers:
 
 	@login_required(login_url='/Banker/banker_login/')
 	def registercustomer(request):
-	    
-	    if request.method == 'POST':
+		
+		if request.method == 'POST':
 			form = RegisterCustomerForm(request.POST)
-			#print(request.POST)
+			print(request.POST)
 			if 'submit' in request.POST:
 				if form.is_valid():
 					UserModel = get_user_model()
@@ -37,8 +37,7 @@ class registernewcustomers:
 			elif 'reset' in request.POST:
 				form = RegisterCustomerForm()
 				return render(request, 'Banker/registercustomer.html', {'form': form})
-			
-	    else:
-	        form = RegisterCustomerForm()
-	    
-	    return render(request, 'Banker/registercustomer.html', {'form': form})
+		else:
+			form = RegisterCustomerForm()
+		
+		return render(request, 'Banker/registercustomer.html', {'form': form})
