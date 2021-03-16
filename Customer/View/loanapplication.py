@@ -16,20 +16,22 @@ class LoanApplication:
 	def loanapplicationform(request):
 
 		form = LoanRequestForm(request.POST)
-		if form.is_valid():
-			username=request.user.username
-			#account_id = CustomerValidation.get_accountid(request)
-			#id_id = User.objects.get(username=username).pk
-			
-			if CustomerValidation.get_loan_details(request) < 2:
-				output = form.save(commit = False)
-				output.account_id = User.objects.get(username=username).pk
-				output.id_id = User.objects.get(username=username).pk
-				output.save()
-				messages.success(request, ('Loan Request Submitted successful! Loan request ID is %s') % output.loan_id)
+		if 'submit' in request.POST:
+			if form.is_valid():
+				username=request.user.username
+				if CustomerValidation.get_loan_details(request) < 2:
+					output = form.save(commit = False)
+					output.account_id = User.objects.get(username=username).pk
+					output.id_id = User.objects.get(username=username).pk
+					output.save()
+					messages.success(request, ('Loan Request Submitted successful! Loan request ID is %s') % output.loan_id)
+
+					return render(request, 'Customer/applyloan.html', {'form': form})
+				else:
+					messages.error(request, ('Loan Request limit exceeded!'))
+					return HttpResponseRedirect(request.path)
 				
-				return render(request, 'Customer/applyloan.html', {'form': form})
-			else:
-				messages.error(request, ('Loan Request limit exceeded!'))
+		elif 'reset' in request.POST:
+			return HttpResponseRedirect(request.path)
 				
-				return render(request, 'Customer/applyloan.html', {'form': form})
+				
