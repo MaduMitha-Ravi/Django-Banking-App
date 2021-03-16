@@ -35,8 +35,8 @@ class registernewcustomers:
 						messages.success(request, ('Customer Registration successful! Customer ID is %s') % output.account_id)
 
 						return render(request, 'Banker/registercustomer.html', {'form': form})
-					else:
-						messages.success(request, ('Username %s is not available') % output.username)
+					elif bankerlogin.is_user_customer(request, username) == 1:
+						messages.success(request, ('Username %s is not available') % username)
 						#return render(request, 'Banker/registercustomer.html', {'form': form})
 					
 			elif 'reset' in request.POST:
