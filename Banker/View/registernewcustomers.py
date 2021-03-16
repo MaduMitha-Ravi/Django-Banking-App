@@ -18,21 +18,26 @@ class registernewcustomers:
 	    
 	    if request.method == 'POST':
 	       	form = RegisterCustomerForm(request.POST)
-	        if form.is_valid():
-	            UserModel = get_user_model()
-	            username = request.POST.get('username')
-	            password = request.POST.get('password')
-	            first_name = request.POST.get('firstname')
-	            last_name = request.POST.get('lastname')
-	            email = request.POST.get('email')
+		print(request.POST)
+		if 'submit' in request.POST:
+			if form.is_valid():
+			    UserModel = get_user_model()
+			    username = request.POST.get('username')
+			    password = request.POST.get('password')
+			    first_name = request.POST.get('firstname')
+			    last_name = request.POST.get('lastname')
+			    email = request.POST.get('email')
 
-	            user = UserModel.objects.create_user(username=username, password = password, first_name=first_name, last_name=last_name, email = email)
-	            user.save()
-	            output = form.save()
-	            messages.success(request, ('Customer Registration successful! Customer ID is %s') % output.account_id)
+			    user = UserModel.objects.create_user(username=username, password = password, first_name=first_name, last_name=last_name, email = email)
+			    user.save()
+			    output = form.save()
+			    messages.success(request, ('Customer Registration successful! Customer ID is %s') % output.account_id)
 
-	            return render(request, 'Banker/registercustomer.html', {'form': form})
-	            
+			    return render(request, 'Banker/registercustomer.html', {'form': form})
+		elif 'reset' in request.POST:
+			form = RegisterCustomerForm()
+			return render(request, 'Banker/registercustomer.html', {'form': form})
+			
 	    else:
 	        form = RegisterCustomerForm()
 	    
