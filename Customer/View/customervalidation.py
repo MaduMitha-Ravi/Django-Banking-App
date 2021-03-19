@@ -25,7 +25,7 @@ class CustomerValidation:
 		return balance
 
 	def get_loan_latest_status(request):
-		loan_status = 'No new updates'
+		loan_status = ' '
 		with connection.cursor() as cursor:
 			results = cursor.execute("SELECT loan_id, loan_status FROM public.\"Customer_loanrequest\" WHERE id_id = '%d' ORDER BY loan_id DESC" %(User.objects.get(username=request.user.username).pk))
 			rowcount = cursor.rowcount 
