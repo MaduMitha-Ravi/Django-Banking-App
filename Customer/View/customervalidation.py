@@ -35,7 +35,7 @@ class CustomerValidation:
 				i = i.replace('(', '')
 				i = i.replace('\'', '')
 				i = i.replace(',)', '')
-				loan_id = int(i)
+				loan_id = i
 				print(loan_id)
 				connection.close()
 				
