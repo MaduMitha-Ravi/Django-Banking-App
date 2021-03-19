@@ -101,8 +101,9 @@ class Customer:
         context = { 'table': table ,  'table1': table1 }
         
         loan_status = CustomerValidation.get_loan_latest_status(request)
+	messages.INFO(request, ' %s ' % loan_status)
 	#print(loan_status)
-        messages.INFO(request, (' %s ') % loan_status)
+        #messages.INFO(request, (' %s ') % loan_status)
 					
         return render(request, 'Customer/customermainpage.html', context=context)    
 
