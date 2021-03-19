@@ -24,6 +24,27 @@ class CustomerValidation:
 
 		return balance
 
+	def get_loan_latest_status(request):
+		with connection.cursor() as cursor:
+			results = cursor.execute("SELECT loan_id, loan_status FROM public.\"Customer_loanrequest\" WHERE id_id = '%d' ORDER BY loan_id DESC" %(User.objects.get(username=request.user.username).pk))
+			loan_id = cursor.fetchone()
+			i = ' '.join([str(elem) for elem in loan_id])
+			i = i.replace('(', '')
+			i = i.replace('\'', '')
+			i = i.replace(',)', '')
+			loan_id = int(i)
+			print(loan_id)
+			connection.close()
+		
+		loan_status = ''	
+		if 'Approved' in loan_id:
+			loan_status = 'Congrats! Loan is Approved'
+		elif 'Declined' in loan_id:
+			loan_status = 'Sorry! Loan is Declined'
+	
+		return loan_status
+		
+	
 	def get_loan_details(request):
 
 		with connection.cursor() as cursor:
