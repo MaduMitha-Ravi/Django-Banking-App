@@ -19,23 +19,20 @@ background-repeat:no-repeat;
 background-size:100%;
 }
   .glow {
-        color: #FB4264;
-        text-shadow: 0 0 3vw #FFFF00;
-        animation: glow 1.2s ease infinite;
-        -moz-animation: glow 1.2s ease infinite;
-        -webkit-animation: glow 1.2s ease infinite;
-      }
-      @keyframes glow {
-        0%,
-        100% {
-           text-shadow: 0 0 .5vw #DBF7DE, 0 0 1.5vw #DBF7DE, 0 0 5vw #DBF7DE, 0 0 5vw #DBF7DE, 0 0 .2vw #DBF7DE, .5vw .5vw .1vw #DBF7DE;
-          color: #DBF7DE;
-        }
-        50% {
-         text-shadow: 0 0 1vw #FFFF00, 0 0 3vw #FFFF00, 0 0 10vw #FFFF00, 0 0 10vw #FFFF00, 0 0 .4vw #FFFF00, .5vw .5vw .1vw #FFFF00;
-          color: #FFFF00;
-        }
-      }
+  color: #fff;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px #0ff,
+    0 0 80px #0ff,
+    0 0 90px #0ff,
+    0 0 100px #0ff,
+    0 0 150px #0ff;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+}
 </style>
   <body>
 {% include "Customer/headertab.html" %}
