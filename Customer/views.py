@@ -103,7 +103,8 @@ class Customer:
         loan_status = CustomerValidation.get_loan_latest_status(request)
 	#messages.INFO(request, ' %s ' % loan_status)
 	#print(loan_status)
-        messages.warning(request, ('%s') % loan_status)
+        if 'loan' in loan_status:
+		messages.warning(request, ('%s') % loan_status)
 					
         return render(request, 'Customer/customermainpage.html', context=context)    
 
