@@ -99,7 +99,10 @@ class Customer:
         table1 = LoanRequest.objects.all().filter(id = User.objects.get(username=request.user.username).pk).order_by('-loan_id')[:2]
 
         context = { 'table': table ,  'table1': table1 }
-
+        
+        loan_status = CustomerValidation.get_loan_latest_status(request)
+        messages.light(request, ('%s') % loan_status)
+					
         return render(request, 'Customer/customermainpage.html', context=context)    
 
     @login_required()
