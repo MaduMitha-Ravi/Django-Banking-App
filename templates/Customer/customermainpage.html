@@ -20,8 +20,6 @@ background-size:100%;
 }
   .glow {
         color: #FB4264;
-        font-size: 9vw;
-        line-height: 9vw;
         text-shadow: 0 0 3vw #FFFF00;
         animation: glow 1.2s ease infinite;
         -moz-animation: glow 1.2s ease infinite;
@@ -62,7 +60,19 @@ background-size:100%;
       <div class="panel-group">
 
         
-          <div class="panel-body" style="color:black; font-family: Copperplate; background: transparent; border-radius: 25px; border: 1px solid #000000; font-size: 20;">Hello {{ user.username }} ! <br> Your Customer ID is {{ user.id }} <br> </div>
+          <div class="panel-body" style="color:black; font-family: Copperplate; background: transparent; border-radius: 25px; border: 1px solid #000000; font-size: 20;">Hello {{ user.username }} ! <br> Your Customer ID is {{ user.id }} <br> 
+        <div class = 'glow'>
+        {% for message in messages %}
+      <div class="container-fluid p-0">
+        <div class="alert {{ message.tags }} alert-dismissible" role="alert" >
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          {{ message }}
+        </div>
+      </div>
+      {% endfor %}
+      </div> </div>
         
         <br>
         <br>
@@ -127,18 +137,7 @@ background-size:100%;
 
           </div>
         </div>
-      <div class = 'glow'>
-        {% for message in messages %}
-      <div class="container-fluid p-0">
-        <div class="alert {{ message.tags }} alert-dismissible" role="alert" >
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          {{ message }}
-        </div>
-      </div>
-      {% endfor %}
-      </div>
+      
     </form>
 
   </body>
