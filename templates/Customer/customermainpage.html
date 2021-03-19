@@ -18,6 +18,26 @@ background-image:url('{% static 'customer_24.jpeg' %}');
 background-repeat:no-repeat;
 background-size:100%;
 }
+  .glow {
+        color: #FB4264;
+        font-size: 9vw;
+        line-height: 9vw;
+        text-shadow: 0 0 3vw #FFFF00;
+        animation: glow 1.2s ease infinite;
+        -moz-animation: glow 1.2s ease infinite;
+        -webkit-animation: glow 1.2s ease infinite;
+      }
+      @keyframes glow {
+        0%,
+        100% {
+           text-shadow: 0 0 .5vw #DBF7DE, 0 0 1.5vw #DBF7DE, 0 0 5vw #DBF7DE, 0 0 5vw #DBF7DE, 0 0 .2vw #DBF7DE, .5vw .5vw .1vw #DBF7DE;
+          color: #DBF7DE;
+        }
+        50% {
+         text-shadow: 0 0 1vw #FFFF00, 0 0 3vw #FFFF00, 0 0 10vw #FFFF00, 0 0 10vw #FFFF00, 0 0 .4vw #FFFF00, .5vw .5vw .1vw #FFFF00;
+          color: #FFFF00;
+        }
+      }
 </style>
   <body>
 {% include "Customer/headertab.html" %}
@@ -107,6 +127,18 @@ background-size:100%;
 
           </div>
         </div>
+      <div class = 'glow'>
+        {% for message in messages %}
+      <div class="container-fluid p-0">
+        <div class="alert {{ message.tags }} alert-dismissible" role="alert" >
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          {{ message }}
+        </div>
+      </div>
+      {% endfor %}
+      </div>
     </form>
 
   </body>
