@@ -63,7 +63,7 @@ class StockBuySell:
 
 			tickerdf_high, tickerdf_low = StockBuySell.stock_actual_price(sel_stock_symbol)
 
-			if amount_to_bid < account_balance:
+			if (amount_to_bid < account_balance).bool():
 
 				if (int(stock_price) < tickerdf_high).bool():
 					if (int(stock_price) > tickerdf_low).bool():
