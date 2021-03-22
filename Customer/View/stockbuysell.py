@@ -62,8 +62,8 @@ class StockBuySell:
 			amount_to_bid = int(stock_count) * int(stock_price)
 
 			tickerdf_high, tickerdf_low = StockBuySell.stock_actual_price(sel_stock_symbol)
-
-			if (int(amount_to_bid) < int(account_balance)).bool():
+			print(account_balance, amount_to_bid)
+			if amount_to_bid < account_balance:
 
 				if (int(stock_price) < tickerdf_high).bool():
 					if (int(stock_price) > tickerdf_low).bool():
