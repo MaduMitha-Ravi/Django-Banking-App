@@ -198,9 +198,15 @@ class StockBuySell:
 		if today.isoweekday() == 6:
 			yesterday = (today - timedelta(days = 2))#.strftime("%Y-%m-%d")
 			todaydate = (today - timedelta(days = 1))#.strftime("%Y-%m-%d")
+		elif today.isoweekday() == 0:
+			yesterday = (today - timedelta(days = 3))#.strftime("%Y-%m-%d")
+			todaydate = (today - timedelta(days = 2))#.strftime("%Y-%m-%d")
 		elif today.isoweekday() == 7:
 			yesterday = (today - timedelta(days = 3))#.strftime("%Y-%m-%d")
 			todaydate = (today - timedelta(days = 2))#.strftime("%Y-%m-%d")
+		elif today.isoweekday() == 1:
+			yesterday = (today - timedelta(days = 4))#.strftime("%Y-%m-%d")
+			todaydate = (today - timedelta(days = 3))#.strftime("%Y-%m-%d")
 		else:
 			yesterday = today - timedelta(days = 1)
 			todaydate = today.strftime("%Y-%m-%d")
