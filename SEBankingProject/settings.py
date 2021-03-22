@@ -24,10 +24,10 @@ TWILIO_NUMBER = os.getenv("TWILIO_NUMBER")
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'ssoftwareengineering@gmail.com'
-EMAIL_HOST_PASSWORD = 'forseproject' #past the key or password app here
+EMAIL_HOST_PASSWORD = 'forseproject'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'default from email'
+#DEFAULT_FROM_EMAIL = 'default from email'
 
 
 MESSAGE_TAGS = {
@@ -151,9 +151,6 @@ USE_L10N = True
 USE_TZ = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
-
-
-
 
 # Adding ASGI Application
 ASGI_APPLICATION = 'Customer.routing.application'
