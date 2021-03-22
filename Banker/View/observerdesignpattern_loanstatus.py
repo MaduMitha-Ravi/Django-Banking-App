@@ -42,8 +42,9 @@ class ObserverAbstract:
     def notify_customer(self):
         
         self.customer_emailid, self.customer_contactnumber = Subscriber.get_subscriber_details(self)
-        ObserverAlerts.email_alert(self,self.customer_emailid)
+        
         ObserverAlerts.msg_alert(self,self.customer_contactnumber)
+        ObserverAlerts.email_alert(self,self.customer_emailid)
         ObserverAlerts.update_customerview(self)
 
 class ObserverAlerts:
