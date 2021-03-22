@@ -20,6 +20,15 @@ TWILIO_ACCOUNT_SID = "AC30afe91b0d2b7f222ad4b8fbda7f8324" #os.getenv("TWILIO_ACC
 TWILIO_AUTH_TOKEN = "55e6957e0e0403d972357b28b8259954" #os.getenv("TWILIO_AUTH_TOKEN")
 TWILIO_NUMBER = os.getenv("TWILIO_NUMBER")
 
+#gmail_send/settings.py
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'ssoftwareengineering@gmail.com'
+EMAIL_HOST_PASSWORD = 'forseproject' #past the key or password app here
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'default from email'
+
 
 MESSAGE_TAGS = {
         messages.DEBUG: 'alert-secondary',
@@ -144,14 +153,7 @@ USE_TZ = True
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 
-#gmail_send/settings.py
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'ssoftwareengineering@gmail.com'
-EMAIL_HOST_PASSWORD = 'forseproject' #past the key or password app here
-EMAIL_PORT = 465 #587
-EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'default from email'
+
 
 # Adding ASGI Application
 ASGI_APPLICATION = 'Customer.routing.application'
