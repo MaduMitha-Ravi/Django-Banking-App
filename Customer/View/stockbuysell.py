@@ -204,7 +204,7 @@ class StockBuySell:
 			yesterday = today - timedelta(days = 1)
 			todaydate = today.strftime("%Y-%m-%d")
 		tickerDf = tickerData.history(period='1d', start=yesterday, end=todaydate)
-		print('Stocks:')
+		print(yesterday, todaydate)
 		print(tickerDf['High'])
 		print(tickerDf['Low'])
 
