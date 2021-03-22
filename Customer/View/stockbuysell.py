@@ -194,12 +194,13 @@ class StockBuySell:
 	def stock_actual_price(stock_symbol):
 		tickerData = yf.Ticker(stock_symbol)
 		today = date.today()
+		print(today.isoweekday())
 		if today.isoweekday() == 6:
-			yesterday = (today - timedelta(days = 2)).strftime("%Y-%m-%d")
-			todaydate = (today - timedelta(days = 1)).strftime("%Y-%m-%d")
+			yesterday = (today - timedelta(days = 2))#.strftime("%Y-%m-%d")
+			todaydate = (today - timedelta(days = 1))#.strftime("%Y-%m-%d")
 		elif today.isoweekday() == 7:
-			yesterday = (today - timedelta(days = 3)).strftime("%Y-%m-%d")
-			todaydate = (today - timedelta(days = 2)).strftime("%Y-%m-%d")
+			yesterday = (today - timedelta(days = 3))#.strftime("%Y-%m-%d")
+			todaydate = (today - timedelta(days = 2))#.strftime("%Y-%m-%d")
 		else:
 			yesterday = today - timedelta(days = 1)
 			todaydate = today.strftime("%Y-%m-%d")
