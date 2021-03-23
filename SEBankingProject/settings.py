@@ -33,14 +33,11 @@ EMAIL_USE_TLS = True
 #DEFAULT_FROM_EMAIL = 'default from email'
 """
 
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = 'ssoftwareengineering@gmail.com'
-EMAIL_HOST_PASSWORD = 'forsoftwarenggproject'
-EMAIL_PORT = 465
+EMAIL_HOST_USER = 'apikey' 
+EMAIL_HOST_PASSWORD = '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'
+EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'ssoftwareengineering@gmail.com'
 
 MESSAGE_TAGS = {
         messages.DEBUG: 'alert-secondary',
