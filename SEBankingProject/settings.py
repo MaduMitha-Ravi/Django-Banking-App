@@ -38,7 +38,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.mailtrap.io'
 EMAIL_HOST_USER = os.environ['USERNAME']
 EMAIL_HOST_PASSWORD = os.environ['PASSWORD']
-EMAIL_PORT = '2525'
+EMAIL_PORT = '465'
 
 MESSAGE_TAGS = {
         messages.DEBUG: 'alert-secondary',
