@@ -16,9 +16,14 @@ DEBUG = True #False
 
 ALLOWED_HOSTS = ['cs872seproject.herokuapp.com', '127.0.0.1']
 
-TWILIO_ACCOUNT_SID = "AC9af3d94e5b824878beecd510880c8312"#"AC8e1e7dd1eb6fe37860ac0347b33d5879" #os.getenv("TWILIO_ACCOUNT_SID")
-TWILIO_AUTH_TOKEN = '4b6a23ea741ea6210da13c34437b52a8' #"a3e3dd78bb76e56f827770abdb228b49" #os.getenv("TWILIO_AUTH_TOKEN")
-TWILIO_NUMBER = os.getenv("TWILIO_NUMBER")
+from boto.s3.connection import S3Connection
+#s3 = S3Connection(os.environ['S3_KEY'], os.environ['S3_SECRET'])
+
+print(os.environ['TWILIO_ACCOUNT_SID'])
+TWILIO_ACCOUNT_SID = S3Connection(os.environ['TWILIO_ACCOUNT_SID']) #"AC9af3d94e5b824878beecd510880c8312"#"AC8e1e7dd1eb6fe37860ac0347b33d5879" #os.getenv("TWILIO_ACCOUNT_SID")
+TWILIO_AUTH_TOKEN = S3Connection(os.environ['TWILIO_AUTH_TOKEN']) #'4b6a23ea741ea6210da13c34437b52a8' #"a3e3dd78bb76e56f827770abdb228b49" #os.getenv("TWILIO_AUTH_TOKEN")
+#TWILIO_NUMBER = os.getenv("TWILIO_NUMBER")
+print(TWILIO_ACCOUNT_SID) 
 
 #gmail_send/settings.py
 """
