@@ -74,7 +74,7 @@ class ObserverAlerts:
 
     def email_alert(self, customer_emailid):
         
-        email_from = os.environ['from_email']
+        email_from = os.environ['USERNAME'] #from_email
 
         if self.loan_message == 'Approved':
             
