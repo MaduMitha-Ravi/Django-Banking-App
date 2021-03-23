@@ -68,6 +68,7 @@ INSTALLED_APPS = [
     'dpd_static_support',
     'bootstrap4',
     'whitenoise.runserver_nostatic',
+    'django_twilio',
 ]
 
 
