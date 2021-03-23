@@ -74,20 +74,20 @@ class ObserverAlerts:
 
     def email_alert(self, customer_emailid):
         
-        email_from = settings.EMAIL_HOST_USER
+        email_from = os.environ['from_email']
 
         if self.loan_message == 'Approved':
             
             subject = 'Congratulations! Your Loan is Approved.'
             message = "Congratulations! Your Loan is Approved with 82 percent accuracy."
-            #print(subject, message, email_from, customer_emailid)
+            print(subject, message, email_from, customer_emailid)
             
             send_mail( subject, message, email_from, customer_emailid, fail_silently=False)
 
         elif self.loan_message == 'Declined':
             subject = 'Sorry, your loan application is Declined.'
             message = "Sorry, your loan application is Declined with 82 percent accuracy."
-            #print(subject, message, email_from, customer_emailid)
+            print(subject, message, email_from, customer_emailid)
             send_mail( subject, message, email_from, customer_emailid, fail_silently=False)
 
     
