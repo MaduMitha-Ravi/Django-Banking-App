@@ -1,3 +1,4 @@
+boto==2.49.0
 sendgrid==6.6.0
 data==0.4
 db==0.1.1
