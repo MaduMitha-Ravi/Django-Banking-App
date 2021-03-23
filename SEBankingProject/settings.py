@@ -16,11 +16,12 @@ DEBUG = True #False
 
 ALLOWED_HOSTS = ['cs872seproject.herokuapp.com', '127.0.0.1']
 
-TWILIO_ACCOUNT_SID = "AC30afe91b0d2b7f222ad4b8fbda7f8324" #os.getenv("TWILIO_ACCOUNT_SID")
-TWILIO_AUTH_TOKEN = "55e6957e0e0403d972357b28b8259954" #os.getenv("TWILIO_AUTH_TOKEN")
+TWILIO_ACCOUNT_SID = "AC8e1e7dd1eb6fe37860ac0347b33d5879" #os.getenv("TWILIO_ACCOUNT_SID")
+TWILIO_AUTH_TOKEN = "a3e3dd78bb76e56f827770abdb228b49" #os.getenv("TWILIO_AUTH_TOKEN")
 TWILIO_NUMBER = os.getenv("TWILIO_NUMBER")
 
 #gmail_send/settings.py
+"""
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'ssoftwareengineering@gmail.com'
@@ -30,7 +31,16 @@ EMAIL_PORT = 587
 #EMAIL_PORT = 465
 EMAIL_USE_TLS = True
 #DEFAULT_FROM_EMAIL = 'default from email'
+"""
 
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'ssoftwareengineering@gmail.com'
+EMAIL_HOST_PASSWORD = 'forsoftwarenggproject'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'ssoftwareengineering@gmail.com'
 
 MESSAGE_TAGS = {
         messages.DEBUG: 'alert-secondary',
