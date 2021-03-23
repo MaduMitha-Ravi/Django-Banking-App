@@ -30,30 +30,6 @@ EMAIL_HOST_USER = '5fe4bb64327341'
 EMAIL_HOST_PASSWORD = '599ed7f387a1d1'
 EMAIL_PORT = '2525'
 
-
-
-"""
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'apikey'
-EMAIL_HOST_PASSWORD = os.environ['api_key']
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'ssoftwareengineering@gmail.com'
-EMAIL_HOST_PASSWORD = 'forseproject'
-EMAIL_PORT = 587
-#EMAIL_USE_SSL = True
-#EMAIL_PORT = 465
-EMAIL_USE_TLS = True
-#DEFAULT_FROM_EMAIL = 'default from email'
-
-EMAIL_HOST = 'smtp.mailtrap.io'
-EMAIL_HOST_USER = os.environ['USERNAME']
-EMAIL_HOST_PASSWORD = os.environ['PASSWORD']
-EMAIL_PORT = '587'
-"""
 MESSAGE_TAGS = {
         messages.DEBUG: 'alert-secondary',
         messages.INFO: 'alert-info',
