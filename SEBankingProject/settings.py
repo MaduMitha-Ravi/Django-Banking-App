@@ -25,13 +25,11 @@ TWILIO_AUTH_TOKEN = os.environ['TWILIO_AUTH_TOKEN'] #'4b6a23ea741ea6210da13c3443
 
 #gmail_send/settings.py
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = os.environ['from_email'] 
-EMAIL_HOST_PASSWORD = os.environ['PASSWORD'] 
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = os.environ['from_email'] 
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = os.environ['api_key']
 
 """
 
