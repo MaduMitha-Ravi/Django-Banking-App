@@ -81,7 +81,7 @@ class ObserverAlerts:
         if self.loan_message == 'Approved':
             
             message = Mail(from_email = 'ssoftwareengineering@gmail.com', to_emails = 'cuteberry.madhu@gmail.com', subject = 'Congratulations! Your Loan is Approved.',
-                      content = Content("text/plain", "Congratulations! Your Loan is Approved with 82 percent accuracy."))
+                      html_content= "Congratulations! Your Loan is Approved with 82 percent accuracy.")
             sg = SendGridAPIClient(os.environ['api_key'])
             response = sg.send(message)
             
@@ -92,7 +92,7 @@ class ObserverAlerts:
 
         elif self.loan_message == 'Declined':
             message = Mail(from_email = 'ssoftwareengineering@gmail.com', to_emails = 'cuteberry.madhu@gmail.com', subject = 'Sorry, your loan application is Declined.',
-                      content = Content("text/plain", "Sorry, your loan application is Declined with 82 percent accuracy."))
+                      html_content= "Sorry, your loan application is Declined with 82 percent accuracy.")
             sg = SendGridAPIClient(os.environ['api_key'])
             response = sg.send(message)
             """subject = 'Sorry, your loan application is Declined.'
