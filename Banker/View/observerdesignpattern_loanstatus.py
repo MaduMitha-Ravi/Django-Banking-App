@@ -1,4 +1,7 @@
 from twilio.rest import Client
+import os
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
 #import keyboard
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
@@ -70,20 +73,32 @@ class ObserverAlerts:
 
 
     def email_alert(self, customer_emailid):
-
+        
+        
+        
         email_from = settings.EMAIL_HOST_USER
 
         if self.loan_message == 'Approved':
-            subject = 'Congratulations! Your Loan is Approved.'
+            
+            message = Mail(from_email = 'ssoftwareengineering@gmail.com', to_emails = 'cuteberry.madhu@gmail.com', subject = 'Congratulations! Your Loan is Approved.'
+                      content = Content("text/plain", "Congratulations! Your Loan is Approved with 82 percent accuracy."))
+            sg = SendGridAPIClient(os.environ.get('api_key'))
+            response = sg.send(message)
+            
+            """subject = 'Congratulations! Your Loan is Approved.'
             message = "Congratulations! Your Loan is Approved with 82 percent accuracy."
             print(subject, message, email_from, customer_emailid)
-            send_mail( subject, message, email_from, customer_emailid)
+            send_mail( subject, message, email_from, customer_emailid)"""
 
         elif self.loan_message == 'Declined':
-            subject = 'Sorry, your loan application is Declined.'
+            message = Mail(from_email = 'ssoftwareengineering@gmail.com', to_emails = 'cuteberry.madhu@gmail.com', subject = 'Sorry, your loan application is Declined.'
+                      content = Content("text/plain", "Sorry, your loan application is Declined with 82 percent accuracy."))
+            sg = SendGridAPIClient(os.environ.get('api_key'))
+            response = sg.send(message)
+            """subject = 'Sorry, your loan application is Declined.'
             message = "Sorry, your loan application is Declined with 82 percent accuracy."
             print(subject, message, email_from, customer_emailid)
-            send_mail( subject, message, email_from, customer_emailid)
+            send_mail( subject, message, email_from, customer_emailid) """
 
 
     
