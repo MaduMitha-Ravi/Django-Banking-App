@@ -33,3 +33,4 @@ whitenoise==5.2.0
 yfinance==0.1.55
 dj-database-url==0.5.0
 django-twilio==0.13.1
+sendgrid-django==4.2.0
