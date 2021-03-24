@@ -7,7 +7,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
@@ -47,12 +47,12 @@ div{background-color: transparent!important;}
   <div ><h2 style="color:black; font-family: Copperplate;"><marquee behavior="alternate" scrollamount="10">Stock Trading</marquee></h2></div>
   
   
-     <form action = "/Customer/stocktrading/" method="POST" enctype="multipart/form-data" style = "width: 60%; font-size: 120%; background: transparent; font-family: Copperplate;" class="form-group">
+     <form action = "/Customer/stocktrading/" method="POST" enctype="multipart/form-data" style = "width: 60%; font-size: 100%; background: transparent; font-family: Copperplate;" class="form-group">
 
       {% csrf_token %}
       {% load bootstrap %}
     
-    <div class="panel-group" id="accordion" style = "font-size: 120%; " >
+    <div class="panel-group" id="accordion" >
 
     <div class="panel panel-default">
       <div class="panel-heading">
