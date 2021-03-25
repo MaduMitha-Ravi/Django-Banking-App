@@ -7,7 +7,7 @@
     <div class="navbar-nav">
       <a class="nav-item nav-link" href="{% url 'Customer:customermainpage' %}">Account Summary</a>
       <a class="nav-item nav-link" href="{% url 'Customer:applyloan' %}">Apply Loan</a>
-      <a class="nav-item nav-link" href="{% url 'Customer:stocktrading' %}">Stock Trading</a>#">Pricing</a>
+      <a class="nav-item nav-link" href="{% url 'Customer:stocktrading' %}">Stock Trading</a>
     </div>
     <form class="form-inline my-2 my-lg-0">
         {% if request.user.is_authenticated %}
