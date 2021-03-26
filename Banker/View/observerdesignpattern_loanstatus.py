@@ -80,14 +80,11 @@ class ObserverAlerts:
             
             subject = 'Congratulations! Your Loan is Approved.'
             message = "Congratulations! Your Loan is Approved with 82 percent accuracy."
-            print(subject, message, email_from, customer_emailid)
-            
             send_mail( subject, message, email_from, customer_emailid, fail_silently=False)
 
         elif self.loan_message == 'Declined':
             subject = 'Sorry, your loan application is Declined.'
             message = "Sorry, your loan application is Declined with 82 percent accuracy."
-            print(subject, message, email_from, customer_emailid)
             send_mail( subject, message, email_from, customer_emailid, fail_silently=False)
 
     
