@@ -57,6 +57,6 @@ class FactoryPattern:
 			i = i.replace('(', '')
 			i = i.replace(',)', '')
 			user_status = i
-			#print(user_status)
+			print(user_status)
 
 		return user_status
