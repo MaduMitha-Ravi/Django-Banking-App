@@ -75,18 +75,13 @@ class Banker:
         if request.POST:
             username = request.POST.get('username')
             if bankeradministration.validate_username(request, username) == 0:
-                print(CustomerValidation.is_user_customer(username))
-                if CustomerValidation.is_user_customer(username) != 0:
-                    abstract_bankeradministration.admin(request, username)
-
-
-                    admin_stats_plot = bankeradministration.admin_stats(request)
-                    context = {'admin_stats_plot': admin_stats_plot}
-
-                    return render(request, 'Banker/customeradmin.html', {'admin_stats_plot': admin_stats_plot})
-                else:
-                    messages.warning(request, ('Please enter valid username!'))
-                    return render(request, 'Banker/customeradmin.html', {'admin_stats_plot': admin_stats_plot})
+                abstract_bankeradministration.admin(request, username)
+                admin_stats_plot = bankeradministration.admin_stats(request)
+                context = {'admin_stats_plot': admin_stats_plot}
+                return render(request, 'Banker/customeradmin.html', {'admin_stats_plot': admin_stats_plot})
+            else:
+                messages.warning(request, ('Please enter valid username!'))
+                return render(request, 'Banker/customeradmin.html', {'admin_stats_plot': admin_stats_plot})
         
         return render(request, 'Banker/customeradmin.html', {'admin_stats_plot': admin_stats_plot})
 
