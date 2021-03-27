@@ -81,6 +81,9 @@ class Banker:
                 context = {'admin_stats_plot': admin_stats_plot}
 
                 return render(request, 'Banker/customeradmin.html', {'admin_stats_plot': admin_stats_plot})
+            else:
+                messages.warning(request, ('Please enter valid username!'))
+                return render(request, 'Banker/customeradmin.html', {'admin_stats_plot': admin_stats_plot})
         
         return render(request, 'Banker/customeradmin.html', {'admin_stats_plot': admin_stats_plot})
 
