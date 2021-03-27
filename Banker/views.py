@@ -75,6 +75,7 @@ class Banker:
         if request.POST:
             username = request.POST.get('username')
             if bankeradministration.validate_username(request, username) == 0:
+                print(CustomerValidation.is_user_customer(username))
                 if CustomerValidation.is_user_customer(username) != 0:
                     abstract_bankeradministration.admin(request, username)
 
