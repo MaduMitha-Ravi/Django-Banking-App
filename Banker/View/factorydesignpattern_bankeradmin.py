@@ -10,10 +10,13 @@ class FactoryPattern:
 		"""
 		Delete the customer based on the Username and update the same in the DB	
 		"""
-		with connection.cursor() as cursor:
-			results = cursor.execute("DELETE FROM public.auth_user where username = '%s'" %username)
-			connection.commit()
-		messages.success(request, ('Customer deleted successfully'))
+		if FactoryPattern.check_status(username) == 'nouser':
+			messages.error(request, ('No such Customer exists.'))
+		else:
+			with connection.cursor() as cursor:
+				results = cursor.execute("DELETE FROM public.auth_user where username = '%s'" %username)
+				connection.commit()
+			messages.success(request, ('Customer deleted successfully'))
 		
 		return render(request, 'Banker/customeradmin.html', {}) 
 
@@ -23,6 +26,8 @@ class FactoryPattern:
 		"""	
 		if FactoryPattern.check_status(username) == 'True':
 			messages.error(request, ('Customer is already in active status.'))
+		elif FactoryPattern.check_status(username) == 'nouser':
+			messages.error(request, ('No such Customer exists.'))
 		elif FactoryPattern.check_status(username) == 'False':
 			with connection.cursor() as cursor:
 				results = cursor.execute("UPDATE public.auth_user SET is_active = 'true' where username = '%s'" %username)
@@ -37,6 +42,8 @@ class FactoryPattern:
 		"""		
 		if FactoryPattern.check_status(username) == 'False':
 			messages.error(request, ('Customer is already in disabled status.'))
+		elif FactoryPattern.check_status(username) == 'nouser':
+			messages.error(request, ('No such Customer exists.'))
 		elif FactoryPattern.check_status(username) == 'True':
 			print("now here")
 			with connection.cursor() as cursor:
@@ -53,10 +60,13 @@ class FactoryPattern:
 		with connection.cursor() as cursor:
 			cursor.execute("SELECT is_active FROM public.auth_user WHERE username = '%s'" %username)
 			user_status = cursor.fetchone()
-			i = ' '.join([str(elem) for elem in user_status])
-			i = i.replace('(', '')
-			i = i.replace(',)', '')
-			user_status = i
-			print(user_status)
+			if cursor.rowcount == 0:
+				user_status = 'nouser'
+			else:
+				i = ' '.join([str(elem) for elem in user_status])
+				i = i.replace('(', '')
+				i = i.replace(',)', '')
+				user_status = i
+				#print(user_status)
 
 		return user_status
