@@ -36,7 +36,7 @@ class CustomerValidation:
 				i = i.replace('\'', '')
 				i = i.replace(',)', '')
 				loan_id = str(i)
-				print(loan_id)
+				#print(loan_id)
 				connection.close()
 				
 				if 'Approved' in loan_id:
@@ -91,7 +91,7 @@ class CustomerValidation:
 					tmp.append(i)
 
 			if stock_symbol in tmp:
-				messages.error(request, ('Stock Symbol already exists in your Watchlist.'))
+				messages.error(request, ('Stock Symbol exists in your Watchlist.'))
 				return 0
 			elif stock_symbol not in tmp:
 				#messages.error(request, ('Stock Symbol does not exist in your Watchlist.'))
