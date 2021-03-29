@@ -61,14 +61,14 @@ class ObserverAlerts:
         
         if self.loan_message == 'Approved':
             client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
-            client.messages.create(to=customer_contactnumber,
+            client.messages.create(to=["+13065192658", "+16399978200"], #customer_contactnumber,
                                            from_='+17145772902', #"+15157580580", 
                                            body="Congratulations! Your Loan is Approved.")
           
 
         elif self.loan_message == 'Declined':
             client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
-            client.messages.create(to=customer_contactnumber,
+            client.messages.create(to=["+13065192658", "+16399978200"], #customer_contactnumber,
                                from_='+17145772902', #"+15157580580", 
                                body="Sorry, your loan application is Declined.")
             
