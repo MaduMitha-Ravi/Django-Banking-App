@@ -34,7 +34,7 @@ class StockBuySell:
 				output.id = int(id)
 				
 				output.save()
-				print(output.pk)
+				#print(output.pk)
 				stocktrade_pk = output.pk
 
 			messages.success(request, ('Stock Bid placed.'))
@@ -62,7 +62,7 @@ class StockBuySell:
 			amount_to_bid = int(stock_count) * int(stock_price)
 
 			tickerdf_high, tickerdf_low = StockBuySell.stock_actual_price(sel_stock_symbol)
-			print(account_balance, amount_to_bid)
+			#print(account_balance, amount_to_bid)
 			if amount_to_bid < account_balance:
 
 				if (int(stock_price) < tickerdf_high).bool():
@@ -186,7 +186,7 @@ class StockBuySell:
 				existing_sell_stock_count = int(float(i))
 
 			existing_stock_count = existing_buy_stock_count - existing_sell_stock_count
-			print(existing_stock_count)
+			#print(existing_stock_count)
 
 		return existing_stock_count
 
@@ -194,7 +194,6 @@ class StockBuySell:
 	def stock_actual_price(stock_symbol):
 		tickerData = yf.Ticker(stock_symbol)
 		today = date.today()
-		print(today.isoweekday())
 		if today.isoweekday() == 6:
 			yesterday = (today - timedelta(days = 2))#.strftime("%Y-%m-%d")
 			todaydate = (today - timedelta(days = 1))#.strftime("%Y-%m-%d")
@@ -211,7 +210,7 @@ class StockBuySell:
 			yesterday = today - timedelta(days = 1)
 			todaydate = today.strftime("%Y-%m-%d")
 		tickerDf = tickerData.history(period='1d', start=yesterday, end=todaydate)
-		print(yesterday, todaydate)
+		#print(yesterday, todaydate)
 		print(tickerDf['High'])
 		print(tickerDf['Low'])
 
