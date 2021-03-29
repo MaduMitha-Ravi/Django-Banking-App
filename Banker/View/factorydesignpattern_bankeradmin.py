@@ -45,7 +45,6 @@ class FactoryPattern:
 		elif FactoryPattern.check_status(username) == 'nouser':
 			messages.error(request, ('No such Customer exists.'))
 		elif FactoryPattern.check_status(username) == 'True':
-			print("now here")
 			with connection.cursor() as cursor:
 				results = cursor.execute("UPDATE public.auth_user SET is_active = 'false' where username = '%s'" %username)
 				connection.commit()
