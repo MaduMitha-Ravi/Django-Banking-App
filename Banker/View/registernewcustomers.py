@@ -19,7 +19,6 @@ class registernewcustomers:
 		
 		if request.method == 'POST':
 			form = RegisterCustomerForm(request.POST)
-			print(request.POST)
 			if 'submit' in request.POST:
 				if form.is_valid():
 					UserModel = get_user_model()
