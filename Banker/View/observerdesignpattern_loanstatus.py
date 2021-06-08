@@ -34,8 +34,8 @@ class Subscriber:
 
     def get_subscriber_details(self):
         
-        self.customer_emailid = ['cuteberry.madhu@gmail.com', 'surambipinkumar@gmail.com',]
-        self.customer_contactnumber = ["+16399978200", "+13065192658" ]
+        self.customer_emailid = [] #add email
+        self.customer_contactnumber = [] #add number
 
         return self.customer_emailid, self.customer_contactnumber     
 
