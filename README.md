@@ -1,4 +1,4 @@
-# Django-Banking-App
+# Django-Banking-App with Machine Learning - Prediction of Loan Approval/ Denial
 
 The Banking project would deal with two user types/roles namely,
 
